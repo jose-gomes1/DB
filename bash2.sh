@@ -1,14 +1,18 @@
 #!/bin/bash
 
-date=${date '+_%m_%d_%H:%M'}
-base = "$1"
+# Obter a data e hora no formato desejado
+data=$(date '+_%m_%d_%H-%M')
 
+# Verificar se o argumento foi fornecido
 if [ -z "$1" ]; then
-    echo "Usage: $0 <file>"
+    echo "Uso: $0 <ficheiro>"
     exit 1
-else
-    cp "$1" "${base}$date.bck"
 fi
-echo "Created $1 as $2"
 
-# TPC: Fazer o clone criar como <filename>_Data_Hora.bck 
+# Obter o nome do ficheiro sem o caminho e sem a extensão
+base=$(basename "$1" ${1##*.})
+
+# Criar o backup com o nome desejado
+cp "$1" "${base}${data}.bck"
+
+echo "Backup criado: ${base}${data}.bck"
