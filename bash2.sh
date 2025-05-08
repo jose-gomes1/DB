@@ -10,7 +10,8 @@ if [ -z "$1" ]; then
 fi
 
 # Obter o nome do ficheiro sem o caminho e sem a extensão
-base=$(basename "$1" ${1##*.})
+filename=$(basename "$1")
+base="${filename%.*}"
 
 # Criar o backup com o nome desejado
 cp "$1" "${base}${data}.bck"
