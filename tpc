@@ -1,0 +1,8 @@
+Saber levantar uma base de dados em micro-serviços (docker)
+UM ficheiro txt
+
+- saber dar pull de uma imagem
+- levantar o container
+- saber parar/levantar o container
+- Fazer 2 scrips: um de backup de uma DB no container, um de restore da DB
+- Definir a linha do ChromeTab para agendar o serviço de backup num intervalo de tempo próprio
