@@ -12,7 +12,7 @@ DB_NAME="$2"
 DEST_FILE="$3"
 
 # Adiciona timestamp ao nome do backup
-TIMESTAMP=$(date '+%Y-%m-%d_%H-%M-%S')
+TIMESTAMP=$(date '_+%Y-%m-%d_%H-%M-%S')
 BACKUP_FILE="${DB_NAME%.*}${TIMESTAMP}.sql"
 
 # Executa o dump dentro do container e redireciona a saída para um ficheiro no host
