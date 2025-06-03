@@ -6,6 +6,3 @@ Muda a base de dados selecionada
 
 - show Tables;
 Mostrar tabelas
-
-- exit
-Sair
