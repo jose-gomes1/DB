@@ -13,3 +13,13 @@ Mostra containers tanto em execução como fora de execução
 - docker exec <modo_de_execução> <nome_do_container>
 Permite executar comandos dentro do container
 Exemplo: docker exec -it mysql /bin/bash (modo interativo e de TTY)
+
+- - - - - - - - - - - -  I M P O R T A N T E  - - - - - - - - - - - - - - 
+
+- docker cp <dB>:/<pasta>/<aquivo> <onde_quer>
+Copia do container para a máquina
+Exemplo: docker exec mysql_container mysqldump resgistro_carros -uroot -p > mydump.sql
+
+- docker cp <aquivo_do_pc> <dB<:/<pasta>/<arquivo>
+Copia da máquina para o container
+
