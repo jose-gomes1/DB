@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# @author José Gomes
+# @brief Ficheiro de Backups para SQL
+# @date 03-06-2025
+# @file trabalho_bash_tentativa1.sh
+
 # Verifica se os parâmetros necessários foram passados
 if [ $# -ne 3 ]; then
     echo "Uso: $0 <nome_do_container> <nome_da_base_de_dados> <ficheiro_de_destino>"
