@@ -1,0 +1,15 @@
+- docker
+Comando principal
+
+- docker <comando> --help
+Mostra opções de como fazer o comando
+
+- docker ps
+Mostra os containers em execução
+
+- docker ps -a
+Mostra containers tanto em execução como fora de execução
+
+- docker exec <modo_de_execução> <nome_do_container>
+Permite executar comandos dentro do container
+Exemplo: docker exec -it mysql /bin/bash (modo interativo e de TTY)

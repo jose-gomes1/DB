@@ -1,0 +1,11 @@
+- mysql -uroot -p
+Entrar no mysql pelo bash
+
+- use <db>
+Muda a base de dados selecionada
+
+- show Tables;
+Mostrar tabelas
+
+- exit
+Sair
