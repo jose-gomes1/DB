@@ -7,7 +7,7 @@
 
 # Verifica se os parâmetros necessários foram passados
 if [ $# -ne 5 ]; then
-    echo "Uso: <nome_do_utilizador> <palavra_passe> <nome_do_container> <nome_da_base_de_dados> <ficheiro_de_destino>"
+    echo "Uso: $0 <nome_do_utilizador> <palavra_passe> <nome_do_container> <nome_da_base_de_dados> <ficheiro_de_destino>"
     exit 1
 fi
 
