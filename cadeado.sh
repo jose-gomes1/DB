@@ -13,8 +13,7 @@ while [[ "$ANSWER" != "$PIN" ]]; do
 
     # Verifica quantos caracteres estão corretos na mesma posição
     CORRECT=0
-    LEN=${#PIN}
-    for (( i=0; i<LEN; i++ )); do
+    for i in {0..3}; do
         if [[ "${PIN:i:1}" == ${ANSWER:i:1} ]]; then
             ((CORRECT++))
         fi
