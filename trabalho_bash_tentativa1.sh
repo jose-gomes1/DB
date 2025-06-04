@@ -2,7 +2,7 @@
 
 # @author José Gomes
 # @brief Ficheiro de Backups para SQL
-# @date 03-06-2025
+# @date 04-06-2025
 # @file trabalho_bash_tentativa1.sh
 
 # Verifica se os parâmetros necessários foram passados
