@@ -30,7 +30,7 @@ read -s -p "Palavra Passe do MYSQL: " PASS
 
 # Executa o dump dentro do container e redireciona a saída para um ficheiro no host
 echo "A fazer backup da base de dados '$DB_NAME' no container '$CONTAINER_NAME' para '$DEST_FILE'..."
-docker exec "$CONTAINER_NAME" mysqldump "$DB_NAME" -u$USER -p$PASS > "$DEST_FILE"/"$BACKUP_FILE"
+docker exec -i "$CONTAINER_NAME" mysqldump "$DB_NAME" -u$USER -p$PASS > "$DEST_FILE"/"$BACKUP_FILE"
 
 if [ $? -eq 0 ]; then
     echo "Backup criado: $BACKUP_FILE"
