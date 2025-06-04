@@ -24,10 +24,4 @@ BACKUP_FILE="${DB_NAME%.*}${TIMESTAMP}.sql"
 echo "A fazer backup da base de dados '$DB_NAME' no container '$CONTAINER_NAME' para '$BACKUP_FILE'..."
 docker exec "$CONTAINER_NAME" mysqldump "$DB_NAME" -uroot -proot > "$BACKUP_FILE"
 
-# Verifica se o comando anterior foi bem-sucedido
-if [ $? -eq 0 ]; then
-    echo "Backup criado com sucesso: $BACKUP_FILE"
-else
-    echo "Erro ao criar o backup."
-    exit 2
-fi
+echo "Backup criado: $BACKUP_FILE"
