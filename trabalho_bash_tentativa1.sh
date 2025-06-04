@@ -22,11 +22,11 @@ if [ ! -d $DEST_FILE ]; then
 fi
 
 # Adiciona timestamp ao nome do backup
-TIMESTAMP=$(date '+_%Y-%m-%d_%H-%M-%S')
+TIMESTAMP=$(date "+_%Y-%m-%d_%H-%M-%S")
 BACKUP_FILE="${DB_NAME}${TIMESTAMP}.sql"
 
-read -p "Username do MYSQL:" USER
-read -s -p "Palavra Passe do MYSQL:" PASS
+read -p "Username do MYSQL: " USER
+read -s -p "Palavra Passe do MYSQL: " PASS
 
 # Executa o dump dentro do container e redireciona a saída para um ficheiro no host
 echo "A fazer backup da base de dados '$DB_NAME' no container '$CONTAINER_NAME' para '$DEST_FILE'..."
