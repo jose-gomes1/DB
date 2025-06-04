@@ -30,4 +30,10 @@ BACKUP_FILE="${DB_NAME}${TIMESTAMP}.sql"
 # Executa o dump dentro do container e redireciona a saída para um ficheiro no host
 echo "A fazer backup da base de dados '$DB_NAME' no container '$CONTAINER_NAME' para '$BACKUP_FILE'..."
 docker exec "$CONTAINER_NAME" mysqldump "$DB_NAME" -u$USER -p$PASS > "$DEST_FILE"/"$BACKUP_FILE"
-echo "Backup criado: $BACKUP_FILE"
+
+if [ $? -eq 0 ]; then
+    echo "Backup criado: $BACKUP_FILE"
+else
+    echo "Erro a criar o backup"
+    exit 2
+fi
