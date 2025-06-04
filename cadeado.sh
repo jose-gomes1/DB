@@ -11,7 +11,6 @@ while [[ "$ANSWER" != "$PIN" ]]; do
     read -n 4 ANSWER
     echo
 
-    # Verifica quantos caracteres estão corretos na mesma posição
     CORRECT=0
     for i in {0..3}; do
         if [[ "${PIN:i:1}" == ${ANSWER:i:1} ]]; then
