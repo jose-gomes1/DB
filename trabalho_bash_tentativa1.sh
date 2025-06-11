@@ -10,6 +10,10 @@ if [ $# -ne 3 ]; then
     echo "Uso: $0 <nome_do_container> <nome_da_base_de_dados> <ficheiro_de_destino>"
     exit 1
 fi
+if [ "$1" == "--help" ]; then
+    echo "Uso: $0 <nome_do_container> <nome_da_base_de_dados> <ficheiro_de_destino>"
+    exit 0
+fi
 
 # Atribui os parâmetros a variáveis
 CONTAINER_NAME="$1"
