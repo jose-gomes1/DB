@@ -22,3 +22,4 @@ docker exec -i $mysqlContainer mysqldump -u"$usrRoot" -p"$pwRoot" --all-database
 
 # Optional: restore dump back into the container (if needed)
 docker exec -i $mysqlContainer mysql -u"$usrRoot" -p"$pwRoot" < ~/Documentos/script.sql
+rm ~/Documentos/script.sql
