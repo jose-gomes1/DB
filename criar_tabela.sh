@@ -1,3 +1,5 @@
+#!/bin/bash
+
 container="$1"
 nomeDB="$2"
 nomeTabela="$3"
