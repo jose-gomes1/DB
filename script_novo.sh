@@ -10,6 +10,7 @@ if [ $# -ne 4 ]; then
     exit 1
 fi
 
+<<<<<<< HEAD
 read -s -p "Qual será a palavra-passe? " pwNew
 
 # Create new user accessible from any host (%)
