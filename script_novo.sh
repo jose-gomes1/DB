@@ -1,12 +1,12 @@
 #!/bin/bash
 
-usrRoot=$1
-pwRoot=$2
-usrNew=$3
-mysqlContainer=$4
+mysqlContainer=$1
+usrRoot=$2
+pwRoot=$3
+usrNew=$4
 
 if [ $# -ne 4 ]; then
-    echo "Forma de usar: $0 <nome_do_user_root> <password_da_root> <nome_do_novo_utilizador> <container_sql>"
+    echo "Forma de usar: $0 <container_sql> <nome_do_user_root> <password_da_root> <nome_do_novo_utilizador>"
     exit 1
 fi
 
