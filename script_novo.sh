@@ -10,13 +10,10 @@ if [ $# -ne 4 ]; then
     exit 1
 fi
 
-# Create new user accessible from any host (%)
 docker exec -i mysql_container mysql -u"$usrRoot" -p"$pwRoot" -e "CREATE USER IF NOT EXISTS '$usrNew'@'localhost' IDENTIFIED BY '$pwNew';"
 docker exec -i mysql_container mysql -u"$usrRoot" -p"$pwRoot" -e "GRANT ALL PRIVILEGES ON *.* TO '$usrNew'@'localhost';"
 docker exec -i mysql_container mysql -u"$usrRoot" -p"$pwRoot" -e "FLUSH PRIVILEGES;"
 
-# Optional: dump all databases to host file
 docker exec -i mysql_container mysqldump -u"$usrRoot" -p"$pwRoot" --all-databases > ~/Documentos/script.sql
 
-# Optional: restore dump back into the container (if needed)
 docker exec -i mysql_container mysql -u"$usrRoot" -p"$pwRoot" < ~/Documentos/script.sql
