@@ -7,7 +7,7 @@ if [ $# -ne 3 ]; then
     exit 1
 fi
 
-echo "CREATE DATABASE $nomeDB;" > criar_tabela.sql
+echo "CREATE DATABASE IF NOT EXISTS $nomeDB;" > criar_tabela.sql
 echo "USE $nomeDB;" >> criar_tabela.sql
 echo "CREATE TABLE $nomeTabela (
     Nome varchar(255)
