@@ -20,6 +20,7 @@ CONTAINER=$2
 IMAGE=$3
 
 case $ACTION in 
+
     criar)
     docker run -d --name $CONTAINER $IMAGE
     ;;
@@ -38,6 +39,11 @@ case $ACTION in
 
     estado)
     docker ps -a | grep $CONTAINER
+    ;;
+
+    *)
+    echo "Opção inválida"
+    exit 1
     ;;
 
 esac
