@@ -19,31 +19,39 @@ ACTION=$1
 CONTAINER=$2
 IMAGE=$3
 
-case $ACTION in 
+verifica_nome(){
+    docker ps -a --format '{{.Names}}' | grep -wq "$CONTAINER"
+}
+
+if ! verifica_nome; then
+  case $ACTION in 
 
     criar)
-    docker run -d --name $CONTAINER $IMAGE
-    ;;
+      docker run -d --name "$CONTAINER" "$IMAGE"
+      ;;
 
     iniciar)
-    docker start $CONTAINER
-    ;;
+      docker start "$CONTAINER"
+      ;;
 
     parar)
-    docker stop $CONTAINER
-    ;;
+      docker stop "$CONTAINER"
+      ;;
 
     apagar)
-    docker rm $CONTAINER
-    ;;
+      docker rm "$CONTAINER"
+      ;;
 
     estado)
-    docker ps -a | grep $CONTAINER
-    ;;
+      docker ps -a | grep "$CONTAINER"
+      ;;
 
     *)
-    echo "Opção inválida"
-    exit 1
-    ;;
+      echo "Opção inválida"
+      exit 1
+      ;;
 
-esac
+  esac
+else
+  echo "O container '$CONTAINER' já existe."
+fi
