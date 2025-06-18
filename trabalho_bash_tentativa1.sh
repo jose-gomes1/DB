@@ -2,12 +2,13 @@
 
 # @author José Gomes
 # @brief Ficheiro de Backups para SQL
-# @date 04-06-2025
+# @date 04-06-2025 (creation)
+# @date 18-06-2025 (updated)
 # @file trabalho_bash_tentativa1.sh
 
 # Verifica se os parâmetros necessários foram passados
 if [ $# -ne 3 ]; then
-    echo "Uso: $0 <nome_do_container> <nome_da_base_de_dados> <ficheiro_de_destino>"
+    echo "Comando $0 mal usado, use $0 --help para ver o uso correto"
     exit 1
 fi
 
@@ -20,6 +21,16 @@ fi
 CONTAINER_NAME="$1"
 DB_NAME="$2"
 DEST_FILE="$3"
+
+if ! docker ps -a --format '{{.Names}}' | grep -wq "$CONTAINER_NAME"; then
+    echo "Erro: O container '$CONTAINER_NAME' não existe."
+    exit 1
+fi
+
+if ! docker exec "$CONTAINER_NAME" mysql -uroot -proot -e "SHOW DATABASES;" | grep -wq "$DB_NAME"; then
+    echo "Erro: A base de dados '$DB_NAME' não existe no container."
+    exit 1
+fi
 
 if [ ! -d $DEST_FILE ]; then
     echo "$DEST_FILE não existe"
